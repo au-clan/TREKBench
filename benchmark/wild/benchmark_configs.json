@@ -1,0 +1,28 @@
+{
+  "freshqa": {
+    "prompt_template": "Answer the question with only the final answer.\n\n{effective_year_block}Question: {question}\nAnswer:",
+    "evaluator": {
+      "type": "llm_judge",
+      "template": "prompts/freshqa_judge.md",
+      "verdict_format": "correct_incorrect",
+      "deterministic_first": true
+    }
+  },
+  "infodeepseek": {
+    "prompt_template": "Answer the question with only the final answer.\n\nQuestion: {question}\nAnswer:",
+    "evaluator": {
+      "type": "llm_judge",
+      "template": "prompts/infodeepseek_judge.md",
+      "false_premise_template": "prompts/infodeepseek_false_premise_judge.md",
+      "verdict_format": "yes_no"
+    }
+  },
+  "sealqa": {
+    "prompt_template": "Answer the question with only the final answer.\n\n{effective_year_block}Question: {question}\nAnswer:",
+    "evaluator": {
+      "type": "llm_judge",
+      "template": "prompts/sealqa_judge.md",
+      "verdict_format": "abc"
+    }
+  }
+}

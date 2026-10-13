@@ -1,0 +1,1 @@
+"""Minimal counterfactual failure attribution."""

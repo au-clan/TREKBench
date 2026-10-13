@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "file": "trekbench.jsonl.gz",
+  "questions": 144,
+  "sha256": "515aedac558afdb11898fa64a4b835fc5653d2ee1d159f70d3f6e17e47f51881",
+  "datasets": {
+    "freshqa": {
+      "questions": 49,
+      "wild_input_sha256": "484a593bc130d2a97007b42f1ca133b5293c995709c0e2a8c51e04457a197af1",
+      "ctrl_input_sha256": "b8af525c884320fc96db4db3d62ce8cd0138c548621d5ffb488b5e4ea5bc426a",
+      "selection": "fact_type == \"fast-changing\" and num_hops == \"multi-hop\"; retain DEV and TEST"
+    },
+    "infodeepseek": {
+      "questions": 31,
+      "wild_input_sha256": "e56f379293cafabe188e5d0e6aafea43487fc1eb8c6d098c3d995df1b41467de",
+      "ctrl_input_sha256": "a817a01e07b1efa9711a079c3c4cda7ddd51cac4ba1ab2cfa5f85f2944e7a5e8",
+      "selection": "time_sensitive and freshness and (difficulty_GPT or difficulty_DS); retain English question field"
+    },
+    "sealqa": {
+      "questions": 64,
+      "wild_input_sha256": "75dd922bbca6255472b44621bac563bb5f61c70213f65e6c581a564637f75e8d",
+      "ctrl_input_sha256": "fd5bb1fe7edec73cd7b3e966152c80b8ee0b60e922f8149dede59975a5e3fbd9",
+      "selection": "config == \"seal_hard\", split == \"test\", freshness == \"fast-changing\""
+    }
+  },
+  "ctrl_snapshot": {
+    "freshqa_infods": "T1 v1 + T2 v2; exclude T1 verified_context_v2/v3 evaluation",
+    "sealqa": "Keep established LongSEAL-Hard T1 v3 matrix unchanged"
+  },
+  "policy": "All 144 selected questions retained, including known reference errors. No predictions, grades, human review results or cached rankings are included.",
+  "conditions": {
+    "gold": "Gold Only",
+    "OO": "Outdated Only",
+    "NMD": "Outdated + T1",
+    "SAA": "T2 with source URLs",
+    "SBA": "Same T2 pool without source URLs"
+  }
+}
